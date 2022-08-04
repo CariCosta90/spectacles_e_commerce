@@ -1,0 +1,11 @@
+@mixin homeCards{
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    border: 1px solid $gris-oscuro;
+    margin: 1rem;
+    background-color: rgba(39, 55, 70, 0.2);
+    & h2{
+        text-align: center;
+    }
+}

@@ -1,0 +1,91 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+}
+@import 'abstracts/variables';
+@import 'abstracts/home';
+@import 'abstracts/mixins';
+
+header{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    h1{
+        color: $gris-oscuro;
+        font-size: 4rem;
+        padding: 2rem;
+    }
+    .info{
+        text-align: center;
+        p{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            .material-icons{
+                padding: 2px;
+            }
+        }
+    }
+    .cart{
+        display: flex;
+        justify-content: space-between;
+        width: 50%;
+        margin: 1rem 2rem;
+        a{
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: $gris-oscuro;
+            border: 1px solid $gris-oscuro;
+            border-radius: 5px;
+            padding: 10px 25px;
+        }
+    }
+    .user{
+        font-size: 2.5rem;
+        color: $gris-oscuro;
+    }
+
+    nav{
+        button{
+            &:hover{
+                background-color: rgba(41, 45, 49,0.5);
+            }
+        }
+
+        ul{
+            li{
+                text-align: center;
+                padding: 1rem 10rem;
+                &:hover{
+                    background-color: rgba(41, 45, 49,0.5); 
+                }                
+                }            
+            }
+        }
+    }
+
+footer{
+    background-color: rgba(40, 43, 46, 0.9);
+    color: rgb(175, 131, 76);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    .contact{
+        h4{
+            font-size: 1.5rem;
+            padding: 3px;            
+            text-align: center;
+            border-bottom: 1px dotted rgb(175, 131, 76);
+        }
+        h5{
+            font-size: 1.1rem;
+        }
+        p{
+            font-style: italic;
+            color: rgba(187, 180, 171, 0.76);
+        }
+    }
+}
