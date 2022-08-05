@@ -39,11 +39,29 @@ body main .liabilities .commit {
     text-decoration: none;
     color: green; }
 
+main .productos {
+  margin: 5rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 1rem; }
+  main .productos .card .card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: darkslategray;
+    opacity: 0.8;
+    color: aliceblue; }
+
 header {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center; }
+  header a {
+    text-decoration: none; }
   header h1 {
     color: darkslategray;
     font-size: 4rem;

@@ -5,12 +5,16 @@
 @import 'abstracts/variables';
 @import 'abstracts/home';
 @import 'abstracts/mixins';
+@import 'abstracts/shop.scss';
 
 header{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    a{
+        text-decoration: none;
+    }
     h1{
         color: $gris-oscuro;
         font-size: 4rem;
