@@ -1,0 +1,45 @@
+.loginBody{
+    background-color: rgba(112, 128, 144, 0.598);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center; 
+    .loginCard{
+        border: 1px solid rgba(53, 53, 53, 0.653);
+        background-color: rgba(112, 128, 144, 0.598);
+        padding: 3px;        
+        border-radius: 10px;
+        box-shadow: rgba(81, 91, 101, 0.598) 3px 5px;
+        img{
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+        }
+        h1{
+            margin-bottom:2rem;
+        }
+        div{
+            display: flex;
+            justify-content: space-between;
+            width: 250px;
+            margin: 1rem;
+            input::placeholder{
+                color: darkslategray;
+                border-radius: 2px;
+            }
+        }
+        .boton{
+            margin: 1rem ;
+            padding: 0.5rem 3rem;
+            background-color: rgba(41, 58, 58, 0.728);
+            color: rgba(254, 254, 254, 0.9);
+            border-radius: 5px;
+            border: none;
+            box-shadow: rgba(21, 30, 30, 0.728) 2px 2px;
+            &:hover{
+                box-shadow: none;
+            }
+        }
+    }
+}
