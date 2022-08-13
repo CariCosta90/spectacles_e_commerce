@@ -39,14 +39,21 @@ body main .liabilities .commit {
     text-decoration: none;
     color: green; }
 
-main .productos {
+main #productos {
   margin: 5rem;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
   align-items: center;
   gap: 1rem; }
-  main .productos .card .card-body {
+  main #productos .card .card-title {
+    font-size: 1.5rem; }
+  main #productos .card .card-text {
+    text-align: center; }
+  main #productos .card .card-price {
+    color: #0fe90f;
+    font-style: italic; }
+  main #productos .card .card-body {
     display: flex;
     flex-direction: column;
     justify-content: center;
