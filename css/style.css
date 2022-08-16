@@ -62,6 +62,34 @@ main #productos {
     opacity: 0.8;
     color: aliceblue; }
 
+main .modal .modal-content .modal-body {
+  padding: 0.5rem; }
+
+main .modal .modal-content .cabecera {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 0.5fr; }
+  main .modal .modal-content .cabecera p {
+    display: inline;
+    margin: auto; }
+
+main .modal .modal-content .elementoCarrito {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 0.5fr;
+  margin: 1rem 0; }
+  main .modal .modal-content .elementoCarrito p {
+    margin: auto; }
+  main .modal .modal-content .elementoCarrito form {
+    margin: auto; }
+  main .modal .modal-content .elementoCarrito .botonEliminar {
+    background-color: white;
+    border: none;
+    padding: 0.3rem; }
+    main .modal .modal-content .elementoCarrito .botonEliminar:hover {
+      background-color: slategrey; }
+
+main .dropdown {
+  text-align: center; }
+
 .loginBody {
   background-color: rgba(112, 128, 144, 0.598);
   height: 100vh;
@@ -132,6 +160,24 @@ header {
       border: 1px solid darkslategray;
       border-radius: 5px;
       padding: 10px 25px; }
+    header .cart .carrito {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      color: darkslategray;
+      border: 1px solid darkslategray;
+      border-radius: 5px;
+      padding: 10px 25px; }
+      header .cart .carrito #contadorCarrito {
+        border: none;
+        position: absolute;
+        margin-left: 1.2rem;
+        background-color: darkslategray;
+        border-radius: 50%;
+        width: 1.5rem;
+        height: 1.5rem;
+        color: azure;
+        text-align: center; }
   header .user {
     font-size: 2.5rem;
     color: darkslategray; }

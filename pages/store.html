@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- import de iconos -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <!-- import de css bootstra p -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <!-- import de mi css -->
@@ -27,11 +28,15 @@
         </div>
         <div class="cart">
             <!-- menú de usuario -->
-            <a href="#">
+            <a href="login.html">
                 <span class="material-icons user">account_circle</span>
             </a>
             <!-- carrito -->
-            <a href="../pages/cart.html">My Cart <span class="material-icons">shopping_cart</span></a>
+            <div class="carrito">
+                <div class="material-icons" data-bs-toggle="modal" data-bs-target="#exampleModal">shopping_cart </div>
+                <p id="contadorCarrito">0</p>
+            </div>
+            <!-- <a href="cart.html">My Cart <span class="material-icons">shopping_cart</span></a> -->
         </div>
         <!-- nav con bootstrap-->
         <nav class="navbar navbar-expand-lg bg-light">
@@ -59,6 +64,38 @@
         <section id="productos">
 
         </section>
+    
+
+    
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Checkout</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" id="carrito">
+                    <div class="cabecera">
+                        <p>Producto</p>
+                        <p>Precio</p>
+                        <p>Cantidad</p>
+                        <p>Eliminar</p>
+                    </div>
+                    <div id="elementos">
+                </div>
+
+                    <p class="precioFinal">
+                        Precio total: $ <span id="precioTotal">0</span>
+                    </p>
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Seguir en tienda</button>
+                <button type="button" class="btn btn-primary">Comprar</button>
+                </div>
+            </div>
+            </div>
+        </div>
     </main>
 
     <footer>
@@ -77,5 +114,7 @@
 
     <!-- link js de tienda -->
     <script src="../js/stock.js"></script>
+    <!-- link js de carrito -->
+    <script src="../js/funcionesCarrito.js"></script>
 </body>
 </html>

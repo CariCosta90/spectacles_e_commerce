@@ -31,4 +31,41 @@ main{
             }
         }
     }
+    .modal{
+        .modal-content{
+            .modal-body{
+                padding: 0.5rem;
+            }
+            .cabecera{
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr 0.5fr;
+                p{
+                    display:inline;
+                    margin: auto;
+                }
+            }
+            .elementoCarrito{
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr 0.5fr;
+                margin: 1rem 0;
+                p{
+                    margin: auto;
+                }
+                form{
+                    margin: auto;
+                }
+                .botonEliminar{
+                    background-color: white;
+                    border: none;
+                    padding: 0.3rem;
+                    &:hover{
+                        background-color: slategrey;
+                    }
+                }           
+            }
+        }
+    }
+    .dropdown{
+        text-align: center;
+    }
 }

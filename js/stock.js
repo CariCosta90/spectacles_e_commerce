@@ -60,9 +60,12 @@ function mostrarProductos(productos){
                                     <p class="card-title">${prod.nombre}</p>
                                     <p class="card-text">${prod.descripcion}</p>
                                     <p class="card-price">$${prod.precio}</p>
-                                    <a href="#" class="btn btn-light">Agregar al carrito</a>
+                                    <a id="btnagregar${prod.codigo}" class="btn btn-light agregarAlCarrito">Agregar al carrito</a>
                                 </div>  `;
         listadoProductos.appendChild(contenedor);
+        let botonSeleccionado = document.getElementById(`btnagregar${prod.codigo}`);  
+        botonSeleccionado.addEventListener('click', ()=> {agregarProductosalCarrito(prod.codigo)
+        });
     }
 }
 

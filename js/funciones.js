@@ -93,25 +93,3 @@ const mostrarTotalCarrito = () => {
 }
 mostrarTotalCarrito();
 
-
-/* Que tengo que hacer con este carrito??
-1. * archivo stock.js
-2. lograr que en vez del alert, la seleccion de productos se tome desde el clic del boton agregar al carrito -- event listener + funcion agregar al
-    2.1 escuchar el click
-    2.2 agregar linea al carrito con los datos de la card (producto, precio)
-    2.3 el precio ya viene convertido a un valor numerico como para hacer calculos?
-3. que los elementos se sumen al carrito que esta en la pagina cart
-    3.1. agregar para editar cantidad?
-    3.2. Agregar para remover del carrito
-    3.3. agregar boton de seguir comprando?
-    3.4. verificar que se modifique el total con los cambios
-4. Generar boton en el carrito que haga el imput del descuento (lo mismo que en el primer punto, tiene que poder levantar la data desde el array de objetos)
-5. verificar que impacte el descuento seleccionado en el total y que agregue una row "descuento en el cart"
-
-los prompt deberian cambiarse por funciones que escuchen el dom (event listener?)
-los alert deberian pasar a modificar el dom, en este caso en el cart 
-*/
-// para esta entrega hay que generar un carrito embebido en la store -- modal js
-
-/* en algun momento podemos agregar un filtro lentes de ver/de sol */
-/* separar el array de stock en otro js - se tienen que llamar en orden, primero el stock y despues la logica - los scripts de JS estan al final del body */

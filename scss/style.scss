@@ -46,6 +46,26 @@ header{
             border-radius: 5px;
             padding: 10px 25px;
         }
+        .carrito{
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: $gris-oscuro;
+            border: 1px solid $gris-oscuro;
+            border-radius: 5px;
+            padding: 10px 25px;
+            #contadorCarrito{
+                border: none;
+                position: absolute;
+                margin-left: 1.2rem;
+                background-color: $gris-oscuro;
+                border-radius: 50%;
+                width: 1.5rem;
+                height: 1.5rem;
+                color: azure;
+                text-align: center;
+            }
+        }
     }
     .user{
         font-size: 2.5rem;
