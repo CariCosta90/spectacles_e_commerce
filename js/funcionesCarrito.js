@@ -1,8 +1,17 @@
 
 let carrito = [];
 const listadoCarrito = document.getElementById('elementos');
+const listadoPromos = document.getElementById('desc');
 let actualizarContador = document.getElementById('contadorCarrito');
 let precioTotal = document.getElementById('precioTotal');
+
+// let btns = document.getElementsByClassName('btnDescuento');
+// for (var i = 0; i < btns.length; i++) {
+//     btns[i].addEventListener("click", function () {
+//         console.log("HOLA");
+//         console.log(this.id);
+//     });
+// }
 
 // botonSeleccionado
 
@@ -18,7 +27,7 @@ function agregarProductosalCarrito(codigo){
         productoAgregado.cantidad = 1;
         carrito.push(productoAgregado);
         mostrarCarrito(productoAgregado);
-        actualizarCarrito();
+        actualizarCarrito();        
     }
 
     }
@@ -49,19 +58,31 @@ function mostrarCarrito(productoAgregado) {
                 document.getElementById(`cant${productoAgregado.codigo}`).innerHTML = `<p id="cant${productoAgregado.codigo}">${productoAgregado.cantidad}</p>`
                 actualizarCarrito();
             }
-        })
+        });
 }
 
-
-/* descuento.push(new Descuentos(1, "Descuento del dia del nino", 15));
-descuento.push(new Descuentos(2, "Descuento por convenio con empresa", 20));
-descuento.push(new Descuentos(3, "Descuento por tarjeta de credito", 25)); */
-
-    
 function actualizarCarrito(){
 // actualizar contador de productos
     actualizarContador.innerHTML = carrito.reduce((acc,el)=> acc+el.cantidad, 0);
-// actualizar total
+
+    // actualizar total
     precioTotal.innerHTML = carrito.reduce((acc,el)=> acc+(el.precio*el.cantidad), 0);
+let btns = document.getElementsByClassName('btnDescuento');
+for (var i = 0; i < btns.length; i++) {
+    btns[i].addEventListener("click", function () {
+        //console.log("HOLA");
+        console.log(this.id);
+        if (this.id ==1) {
+            precioTotal.innerHTML = carrito.reduce((acc,el)=> acc+(el.precio*el.cantidad), 0);
+        }else if (this.id==2){
+            precioTotal.innerHTML = carrito.reduce((acc,el)=> acc+((el.precio*el.cantidad)*0.85), 0);
+        }else if (this.id==3){
+            precioTotal.innerHTML = carrito.reduce((acc,el)=> acc+((el.precio*el.cantidad)*0.80), 0);
+        }else{
+            precioTotal.innerHTML = carrito.reduce((acc,el)=> acc+((el.precio*el.cantidad)*0.75), 0);
+        }
+    });
+}
+    //precioTotal.innerHTML = carrito.reduce((acc,el)=> acc+(el.precio*el.cantidad), 0);
     }
 

@@ -62,6 +62,16 @@ main #productos {
     opacity: 0.8;
     color: aliceblue; }
 
+main .modal .modal-content #desc {
+  text-align: center;
+  font-weight: bold;
+  background-color: rgba(169, 169, 169, 0.584);
+  border-radius: 5px;
+  padding: 1rem; }
+  main .modal .modal-content #desc .btnDescuento {
+    margin: 5px;
+    display: block; }
+
 main .modal .modal-content .modal-body {
   padding: 0.5rem; }
 
@@ -71,6 +81,9 @@ main .modal .modal-content .cabecera {
   main .modal .modal-content .cabecera p {
     display: inline;
     margin: auto; }
+
+main .modal .modal-content .precioFinal {
+  margin-top: 1rem; }
 
 main .modal .modal-content .elementoCarrito {
   display: grid;

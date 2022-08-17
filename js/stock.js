@@ -70,3 +70,4 @@ function mostrarProductos(productos){
 }
 
 mostrarProductos(productos);
+

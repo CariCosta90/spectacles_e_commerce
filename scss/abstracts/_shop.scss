@@ -33,6 +33,17 @@ main{
     }
     .modal{
         .modal-content{
+            #desc{
+                text-align: center;
+                font-weight: bold;
+                background-color: rgba(169, 169, 169, 0.584);
+                border-radius: 5px;
+                padding: 1rem;
+                .btnDescuento{
+                    margin: 5px;
+                    display: block;
+                }
+            }
             .modal-body{
                 padding: 0.5rem;
             }
@@ -43,6 +54,9 @@ main{
                     display:inline;
                     margin: auto;
                 }
+            }
+            .precioFinal{
+                margin-top: 1rem;
             }
             .elementoCarrito{
                 display: grid;
