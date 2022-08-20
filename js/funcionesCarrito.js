@@ -5,13 +5,7 @@ const listadoPromos = document.getElementById('desc');
 let actualizarContador = document.getElementById('contadorCarrito');
 let precioTotal = document.getElementById('precioTotal');
 
-// let btns = document.getElementsByClassName('btnDescuento');
-// for (var i = 0; i < btns.length; i++) {
-//     btns[i].addEventListener("click", function () {
-//         console.log("HOLA");
-//         console.log(this.id);
-//     });
-// }
+
 
 // botonSeleccionado
 
