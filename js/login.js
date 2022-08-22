@@ -36,6 +36,7 @@ function GuardarUsuarios(){
         localStorage.setItem('Lista de usuarios', usuariosGuardados);
         alert('el usuario se ha guardado correctamente');    
 }
+// alert('el usuario se ha guardado correctamente'); 
 
 function RecuperarUsuarios() {
     //usuariosRecuperados = JSON.parse(usuariosGuardados);
@@ -82,13 +83,9 @@ btnLoguear.addEventListener('click', function () {
 1. borrar los campos input despues de crear un usuario *hecho*
 3. no poder crear usuario con mismo mail mas de 1 vez *hecho* 
 2. redirigir a la store cuando se ingrese exitosamente *hecho*
+1. revisar y aplicar la mejora de codigo que me paso Emiliano *hecho*
 
 
 4. limitantes en la pass, ej cantidad de caracteres, caracteres especiales
 5. que el mail sea un mail
-*/
-
-/* Pendientes: 
-1. revisar y aplicar la mejora de codigo que me paso Emiliano
-2. verificar si se puede agregar el sumar items desde el carrito con el ejemplo que me paso Emiliano
 */
