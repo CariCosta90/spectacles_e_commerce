@@ -89,3 +89,5 @@ btnLoguear.addEventListener('click', function () {
 4. limitantes en la pass, ej cantidad de caracteres, caracteres especiales
 5. que el mail sea un mail
 */
+
+// comentario de prueba
