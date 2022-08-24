@@ -5,8 +5,6 @@ const listadoPromos = document.getElementById('desc');
 let actualizarContador = document.getElementById('contadorCarrito');
 let precioTotal = document.getElementById('precioTotal');
 
-
-
 // botonSeleccionado
 
 function agregarProductosalCarrito(codigo){
@@ -57,30 +55,18 @@ function mostrarCarrito(productoAgregado) {
 
 function actualizarCarrito(){
 // actualizar contador de productos
-    actualizarContador.innerHTML = carrito.reduce((acc,el)=> acc+el.cantidad, 0);
+actualizarContador.innerHTML = carrito.reduce((acc,el)=> acc+el.cantidad, 0);
 
     // actualizar total
-    precioTotal.innerHTML = carrito.reduce((acc,el)=> acc+(el.precio*el.cantidad), 0);
+precioTotal.innerHTML = carrito.reduce((acc,el)=> acc+(el.precio*el.cantidad), 0);
 let btns = document.getElementsByClassName('btnDescuento');
 for (var i = 0; i < btns.length; i++) {
 for (const btn of btns){
-    btns.addEventListener("click", function () {
-        //console.log("HOLA");
-        // console.log(this.id);
-        // if (this.id ==1) {
-        //     precioTotal.innerHTML = carrito.reduce((acc,el)=> acc+(el.precio*el.cantidad), 0);
-        // }else if (this.id==2){
-        //     precioTotal.innerHTML = carrito.reduce((acc,el)=> acc+((el.precio*el.cantidad)*0.85), 0);
-        // }else if (this.id==3){
-        //     precioTotal.innerHTML = carrito.reduce((acc,el)=> acc+((el.precio*el.cantidad)*0.80), 0);
-        // }else{
-        //     precioTotal.innerHTML = carrito.reduce((acc,el)=> acc+((el.precio*el.cantidad)*0.75), 0);
-        // }
+    btn.addEventListener("click", function () {
         let desc = Number(btn.value);
         console.log(btn.value);
         precioTotal.innerHTML = carrito.reduce((acc,el)=> acc+(el.precio*el.cantidad)*desc, 0);
     });
-}
-    //precioTotal.innerHTML = carrito.reduce((acc,el)=> acc+(el.precio*el.cantidad), 0);
+        }
     }
 }
