@@ -71,12 +71,8 @@ btnLoguear.addEventListener('click', function (e) {
 
 
 let encontrarUsuario = usuariosRecuperados.find(element => element.correo == emailUsuarioLogin);
-    if(encontrarUsuario){
-        //cambio por operador ternario
-        encontrarUsuario.pass == passUsuarioLogin  ?  window.location.replace('../pages/store.html')  :  informacionLogin.innerHTML =`Contraseña incorrecta`;
-    }else{
-        informacionLogin.innerHTML =`Usuario no existe, debes registrarte`;
-    }    
+
+// anido un operador ternario dentro de otro
+
+encontrarUsuario  ? (encontrarUsuario.pass == passUsuarioLogin  ?  window.location.replace('../pages/store.html')  :  informacionLogin.innerHTML =`Contraseña incorrecta`) : informacionLogin.innerHTML =`Usuario no existe, debes registrarte`; 
 });
-
-
