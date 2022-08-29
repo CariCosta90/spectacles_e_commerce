@@ -54,7 +54,7 @@ function GuardarUsuarios(){
         informacionLogin.innerHTML =`El usuario se ha guardado correctamente`;
 }
 
-
+ 
 function RecuperarUsuarios() {
 
     usuariosRecuperados = JSON.parse(localStorage.getItem('Lista de usuarios'));
@@ -62,7 +62,7 @@ function RecuperarUsuarios() {
     console.log(usuariosGuardados);
 }
 
-let btnLoguear = document.getElementById('btnLogin');
+let btnLoguear = document.getElementById('btnLogin'); 
 btnLoguear.addEventListener('click', function (e) {
     e.preventDefault();
     let emailUsuarioLogin = document.getElementById('email').value;
@@ -72,12 +72,11 @@ btnLoguear.addEventListener('click', function (e) {
 
 let encontrarUsuario = usuariosRecuperados.find(element => element.correo == emailUsuarioLogin);
     if(encontrarUsuario){
-        if(encontrarUsuario.pass == passUsuarioLogin){
-            window.location.replace('../pages/store.html');
-        }else{
-            informacionLogin.innerHTML =`Contraseña incorrecta`;
-        }
+        //cambio por operador ternario
+        encontrarUsuario.pass == passUsuarioLogin  ?  window.location.replace('../pages/store.html')  :  informacionLogin.innerHTML =`Contraseña incorrecta`;
     }else{
         informacionLogin.innerHTML =`Usuario no existe, debes registrarte`;
     }    
 });
+
+

@@ -24,22 +24,26 @@ function agregarProductosalCarrito(codigo){
 
     }
 
-function mostrarCarrito(productoAgregado) {
 
+    
+    
+function mostrarCarrito(productoAgregado) {
+    //aplicar desestructuración 
+    let {nombre, codigo, precio, cantidad}=productoAgregado;
     //modal dentro de listadoCarrito
     let div = document.createElement("div");
         div.className = 'elementoCarrito';
         //Definimos el innerHTML del elemento con una plantilla de texto
-        div.innerHTML = `   <p>${productoAgregado.nombre}</p>
-                            <p id="precio${productoAgregado.codigo}">$${productoAgregado.precio}</p>
-                            <p id="cant${productoAgregado.codigo}">${productoAgregado.cantidad}</p>
-                            <button id="btn-eliminar${productoAgregado.codigo}" class="botonEliminar"><span class="material-symbols-outlined">
+        div.innerHTML = `   <p>${nombre}</p>
+                            <p id="precio${codigo}">$${precio}</p>
+                            <p id="cant${codigo}">${cantidad}</p>
+                            <button id="btn-eliminar${codigo}" class="botonEliminar"><span class="material-symbols-outlined">
                                 delete
                                 </span></button>  `;
         listadoCarrito.appendChild(div); 
 
-        //eliminar productos del carrito
-        let btnEliminar = document.getElementById(`btn-eliminar${productoAgregado.codigo}`);
+        //eliminar productos del carrito        
+        let btnEliminar = document.getElementById(`btn-eliminar${codigo}`);
         btnEliminar.addEventListener('click', ()=> {
             if(productoAgregado.cantidad ==1){
                 carrito = carrito.filter((item) => item.codigo !== productoAgregado.codigo)
@@ -65,7 +69,8 @@ for (const btn of btns){
     btn.addEventListener("click", function () {
         let desc = Number(btn.value);
         console.log(btn.value);
-        precioTotal.innerHTML = carrito.reduce((acc,el)=> acc+(el.precio*el.cantidad)*desc, 0);
+        // agrego toFixed para dejar solo dos valores despues de la coma
+        precioTotal.innerHTML = carrito.reduce((acc,el)=> acc+(el.precio*el.cantidad)*desc, 0).toFixed(2);
     });
         }
     }

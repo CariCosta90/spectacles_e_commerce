@@ -2,3 +2,5 @@
 *.json
 #Ignora la carpeta node_modules
 node_modules
+#ignora el archivo funciones.js
+funciones.js

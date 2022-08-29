@@ -1,9 +1,3 @@
-/* productos del carrito para cards  */
-
-/* 
-1. lograr que coincida la informacion del objeto productos con los elementos en la tienda
-    1.1 ver pagina 48 de ppt clase 8 explica como generar divs con la informacion de un array de productos.*/
-
 //creo una clase para generar una plantilla de objeto para los productos
 
 class Producto {
@@ -50,21 +44,23 @@ const listadoProductos = document.getElementById('productos');
 // creo la funcion para generar las cards en el HTML interactuando con el DOM - lo hago distinto a lo visto en clase complementaria para practicar. En vez de forEach uso For...of
 
 function mostrarProductos(productos){
+    // desestructuración     
     for (const prod of productos) {
+        let {imagen, nombre, descripcion, precio, codigo}=prod;
         let contenedor = document.createElement("div");
         contenedor.className = 'card';
         contenedor.style='width: 18rem;';
         //Definimos el innerHTML del elemento con una plantilla de texto
-        contenedor.innerHTML = `<img src="${prod.imagen}" class="card-img-top" alt="...">
+        contenedor.innerHTML = `<img src="${imagen}" class="card-img-top" alt="...">
                                 <div class="card-body">
-                                    <p class="card-title">${prod.nombre}</p>
-                                    <p class="card-text">${prod.descripcion}</p>
-                                    <p class="card-price">$${prod.precio}</p>
-                                    <a id="btnagregar${prod.codigo}" class="btn btn-light agregarAlCarrito">Agregar al carrito</a>
+                                    <p class="card-title">${nombre}</p>
+                                    <p class="card-text">${descripcion}</p>
+                                    <p class="card-price">$${precio}</p>
+                                    <a id="btnagregar${codigo}" class="btn btn-light agregarAlCarrito">Agregar al carrito</a>
                                 </div>  `;
         listadoProductos.appendChild(contenedor);
-        let botonSeleccionado = document.getElementById(`btnagregar${prod.codigo}`);  
-        botonSeleccionado.addEventListener('click', ()=> {agregarProductosalCarrito(prod.codigo)
+        let botonSeleccionado = document.getElementById(`btnagregar${codigo}`);  
+        botonSeleccionado.addEventListener('click', ()=> {agregarProductosalCarrito(codigo)
         });
     }
 }
