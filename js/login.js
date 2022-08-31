@@ -9,8 +9,8 @@ const usuariosRegistrados = [];
 let informacionLogin = document.getElementById("info");
 
 informacionLogin.innerHTML = `  <b>La contraseña debe contener:</b> 
-                                <li>Minimo 8 caracteres </li>
-                                <li>Un número </li>
+                                <li>Minimo 8 caracteres</li>
+                                <li>Un número</li>
                                 <li>Una letra mayúscula</li>
                                 <li>Una letra minúscula</li>
                                 <li>Un caracter especial</li>`
@@ -27,7 +27,12 @@ btnRegistrar.addEventListener('click', function(e){
     if(regularExpression.test(passIngresada.value) && emailIngresado != ""){
         if(usuariosRegistrados.length>0){
             if(existe = usuariosRegistrados.find(element => element.correo == emailIngresado)){
-                informacionLogin.innerHTML = `Ya existe un usuario registrado con ese correo`;
+                //informacionLogin.innerHTML = `Ya existe un usuario registrado con ese correo`;
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Ya existe un usuario registrado con ese correo!',
+                    })
             }else{
                 usuariosRegistrados.push(new Usuario(emailIngresado,passIngresada.value));    
                     GuardarUsuarios();
@@ -41,7 +46,12 @@ btnRegistrar.addEventListener('click', function(e){
             passIngresada.value=''
         }
     }else{
-        informacionLogin.innerHTML =`La contraseaña no respeta el formato o no ingresó email`;
+        //informacionLogin.innerHTML =`La contraseaña no respeta el formato o no ingresó email`;
+        Swal.fire({
+            icon: 'warning',
+            title: 'Oops...',
+            text: 'La contraseaña no respeta el formato o no ingresó un email valido!',
+            })
     }
 });
 
@@ -51,7 +61,12 @@ let usuariosRecuperados;
 function GuardarUsuarios(){
         usuariosGuardados = JSON.stringify(usuariosRegistrados);
         localStorage.setItem('Lista de usuarios', usuariosGuardados);
-        informacionLogin.innerHTML =`El usuario se ha guardado correctamente`;
+        //informacionLogin.innerHTML =`El usuario se ha guardado correctamente`;
+        Swal.fire({
+            icon: 'success',
+            title: 'Genial!',
+            text: 'El usuario se ha guardado correctamente!',
+            })
 }
 
  
@@ -75,4 +90,34 @@ let encontrarUsuario = usuariosRecuperados.find(element => element.correo == ema
 // anido un operador ternario dentro de otro
 
 encontrarUsuario  ? (encontrarUsuario.pass == passUsuarioLogin  ?  window.location.replace('../pages/store.html')  :  informacionLogin.innerHTML =`Contraseña incorrecta`) : informacionLogin.innerHTML =`Usuario no existe, debes registrarte`; 
+
+
+    if(encontrarUsuario){
+        if(encontrarUsuario.pass == passUsuarioLogin){
+            window.location.replace('../pages/store.html');
+        }else{
+            informacionLogin.innerHTML =`Contraseña incorrecta`;
+        }
+    }else{
+        informacionLogin.innerHTML =`Usuario no existe, debes registrarte`;
+    }    
+
+
+// anido un operador ternario dentro de otro
+
+encontrarUsuario  ? (encontrarUsuario.pass == passUsuarioLogin  ?  window.location.replace('../pages/store.html')  :  
+//informacionLogin.innerHTML =`Contraseña incorrecta`
+Swal.fire({
+    icon: 'error',
+    title: 'Oops...',
+    text: 'Contraseña incorrecta!',
+    })
+) : 
+//informacionLogin.innerHTML =`Usuario no existe, debes registrarte`; 
+Swal.fire({
+    icon: 'info',
+    title: 'Oops...',
+    text: 'Usuario no existe, debes registrarte!',
+    })
+
 });
