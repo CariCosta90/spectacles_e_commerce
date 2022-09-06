@@ -40,7 +40,6 @@ const traerProductosJson = async () => {
     console.log(response);
     console.log(data);
 
-
     data.forEach(el => {
         let codigo = el.codigo;
         let nombre = el.nombre;

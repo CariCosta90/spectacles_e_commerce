@@ -1,0 +1,17 @@
+[
+    {"codigo": 1, "nombre": "Producto 1","precio": 1500, "descripcion":  "DESCRIPCIÓN: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis, culpa.","categoria": "lentes de Sol","imagen": "../images/s6.jpg"},
+    {"codigo": 2, "nombre": "Producto 2","precio": 2700, "descripcion":  "DESCRIPCIÓN: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis, culpa.","categoria": "lentes de Sol","imagen": "../images/sunglasses-on-yellow-beach-towel.png"},
+    {"codigo": 3, "nombre": "Producto 3","precio": 2200, "descripcion":  "DESCRIPCIÓN: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis, culpa.","categoria": "lentes de Sol", "imagen": "./images/designed-sunglasses-on-the-red-book-and-grey-surface.png"},
+    {"codigo": 4, "nombre": "Producto 4","precio": 3150, "descripcion":  "DESCRIPCIÓN: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis, culpa.","categoria": "lentes de Sol","imagen": "../images/front-view-modern-dark-sunglasses-on-the-orange-black.png"},
+    {"codigo": 5, "nombre": "Producto 5","precio": 2850, "descripcion":  "DESCRIPCIÓN: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis, culpa.","categoria": "lentes de prescripcion", "imagen": "../images/eyeglasses-wear.png"},
+    {"codigo": 6, "nombre": "Producto 6","precio": 1700, "descripcion":  "DESCRIPCIÓN: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis, culpa.","categoria": "lentes de prescripcion", "imagen": "../images/optic-glasses-on-the-table.png"},
+    {"codigo": 7, "nombre": "Producto 7","precio": 2200, "descripcion":  "DESCRIPCIÓN: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis, culpa.", "categoria": "lentes de Sol","imagen": "../images/m1.jpg"},
+    {"codigo": 8, "nombre": "Producto 8","precio": 3700, "descripcion":  "DESCRIPCIÓN: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis, culpa.","categoria": "lentes de prescripcion", "imagen": "../images/m2.jpg"},
+    {"codigo": 9, "nombre": "Producto 9","precio": 2450, "descripcion":  "DESCRIPCIÓN: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis, culpa.","categoria": "lentes de Sol","imagen": "../images/m3.jpg"},
+    {"codigo": 10, "nombre": "Producto 10", "precio": 1500, "descripcion": "DESCRIPCIÓN: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis, culpa.", "categoria": "lentes de Sol", "imagen": "../images/m4.jpg"},
+    {"codigo": 11, "nombre": "Producto 11", "precio": 1900, "descripcion": "DESCRIPCIÓN: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis, culpa.", "categoria": "lentes de Sol", "imagen": "../images/s1.jpg"},
+    {"codigo": 12, "nombre": "Producto 12", "precio": 2490, "descripcion": "DESCRIPCIÓN: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis, culpa.", "categoria": "lentes de Sol", "imagen": "../images/s2.jpg"},
+    {"codigo": 13, "nombre": "Producto 13", "precio": 3200, "descripcion": "DESCRIPCIÓN: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis, culpa.", "categoria": "lentes de Sol", "imagen": "../images/s3.jpg"},
+    {"codigo": 14, "nombre": "Producto 14", "precio": 2300, "descripcion": "DESCRIPCIÓN: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis, culpa.", "categoria": "lentes de Sol", "imagen": "../images/s4.jpg"}
+
+]

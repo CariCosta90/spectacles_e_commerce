@@ -1,5 +1,4 @@
-#Ignora los archivos json
-*.json
+
 #Ignora la carpeta node_modules
 node_modules
 #ignora el archivo funciones.js
