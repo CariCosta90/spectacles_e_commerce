@@ -52,7 +52,7 @@ function mostrarCarrito(productoAgregado) {
     div.className = 'elementoCarrito';
         //Definimos el innerHTML del elemento con una plantilla de texto
     div.innerHTML = `   <p>${nombre}</p>
-                        <p id="precio${codigo}">$${precio}</p>
+                        <p id="precio${codigo}">$ ${parseFloat(precio)}</p>
                         <p id="cant${codigo}">${cantidad}</p>
                         <button id="btn-eliminar${codigo}" class="botonEliminar"><span class="material-symbols-outlined">
                             delete
@@ -102,3 +102,35 @@ for (var i = 0; i < btns.length; i++) {
     }
 }
 }
+
+
+//integracion con API de MercadoPago
+const pagar = async () =>{
+    const productosToMap = carrito.map(element =>{
+        let nuevoElemento=
+        {
+            title: element.nombre,
+            description: "",
+            picture_url: "",
+            category_id: "",
+            quantity: parseInt(element.cantidad),
+            currency_id: "UYU",
+            unit_price: parseFloat(element.precio) 
+        }
+        return nuevoElemento;
+    })
+    let response = await fetch ("https://api.mercadopago.com/checkout/preferences", {
+        method: "POST",
+        headers: {
+            Authorization: "Bearer TEST-3922510733928552-090619-611e4104ebcfea53ae9c5ed178e2abd2-89995881"
+        },
+        body: JSON.stringify({
+            items: productosToMap
+        })
+    });
+
+    let data = await response.json();
+    console.log(data);
+    window.open(data.init_point, "_blank")
+}
+
