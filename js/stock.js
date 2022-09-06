@@ -9,29 +9,56 @@ class Producto {
         this.categoria=categoria;
         this.imagen=imagen;
     }
-    // agrego el teFixed para que queden solo 2 decimales al calcular el iva
+    // agrego el toFixed para que queden solo 2 decimales al calcular el iva
     sumaIva(){
         this.precio=parseFloat(this.precio*1.22).toFixed(2);
     }
 }
 // agrego productos a un array 
+//let productos = [];
+
+// productos.push(new Producto(1,"Producto 1", 1500, "DESCRIPCIÓN: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis, culpa.", "lentes de Sol", '../images/s6.jpg'));
+// productos.push(new Producto(2,"Producto 2", 2700, "DESCRIPCIÓN: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis, culpa.", "lentes de Sol", '../images/sunglasses-on-yellow-beach-towel.png'));
+// productos.push(new Producto(3,"Producto 3", 2200, "DESCRIPCIÓN: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis, culpa.", "lentes de Sol", '../images/designed-sunglasses-on-the-red-book-and-grey-surface.png'));
+// productos.push(new Producto(4,"Producto 4", 3150, "DESCRIPCIÓN: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis, culpa.", "lentes de Sol", '../images/front-view-modern-dark-sunglasses-on-the-orange-black.png'));
+// productos.push(new Producto(5,"Producto 5", 2850, "DESCRIPCIÓN: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis, culpa.", "lentes de prescripcion", '../images/eyeglasses-wear.png'));
+// productos.push(new Producto(6,"Producto 6", 1700, "DESCRIPCIÓN: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis, culpa.", "lentes de prescripcion", '../images/optic-glasses-on-the-table.png'));
+// productos.push(new Producto(7,"Producto 7", 2200, "DESCRIPCIÓN: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis, culpa.", "lentes de Sol", '../images/m1.jpg'));
+// productos.push(new Producto(8,"Producto 8", 3700, "DESCRIPCIÓN: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis, culpa.", "lentes de prescripcion", '../images/m2.jpg'));
+// productos.push(new Producto(9,"Producto 9", 2450, "DESCRIPCIÓN: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis, culpa.", "lentes de Sol", '../images/m3.jpg'));
+// productos.push(new Producto(10,"Producto 10", 1500, "DESCRIPCIÓN: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis, culpa.", "lentes de Sol", '../images/m4.jpg'));
+// productos.push(new Producto(11,"Producto 11", 1900, "DESCRIPCIÓN: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis, culpa.", "lentes de Sol", '../images/s1.jpg'));
+// productos.push(new Producto(12,"Producto 12", 2490, "DESCRIPCIÓN: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis, culpa.", "lentes de Sol", '../images/s2.jpg'));
+// productos.push(new Producto(13,"Producto 13", 3200, "DESCRIPCIÓN: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis, culpa.", "lentes de Sol", '../images/s3.jpg'));
+// productos.push(new Producto(14,"Producto 14", 2300, "DESCRIPCIÓN: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis, culpa.", "lentes de Sol", '../images/s4.jpg'));
 
 let productos = [];
-productos.push(new Producto(1,"Producto 1", 1500, "DESCRIPCIÓN: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis, culpa.", "lentes de Sol", '../images/s6.jpg'));
-productos.push(new Producto(2,"Producto 2", 2700, "DESCRIPCIÓN: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis, culpa.", "lentes de Sol", '../images/sunglasses-on-yellow-beach-towel.png'));
-productos.push(new Producto(3,"Producto 3", 2200, "DESCRIPCIÓN: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis, culpa.", "lentes de Sol", '../images/designed-sunglasses-on-the-red-book-and-grey-surface.png'));
-productos.push(new Producto(4,"Producto 4", 3150, "DESCRIPCIÓN: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis, culpa.", "lentes de Sol", '../images/front-view-modern-dark-sunglasses-on-the-orange-black.png'));
-productos.push(new Producto(5,"Producto 5", 2850, "DESCRIPCIÓN: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis, culpa.", "lentes de prescripcion", '../images/eyeglasses-wear.png'));
-productos.push(new Producto(6,"Producto 6", 1700, "DESCRIPCIÓN: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis, culpa.", "lentes de prescripcion", '../images/optic-glasses-on-the-table.png'));
-productos.push(new Producto(7,"Producto 7", 2200, "DESCRIPCIÓN: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis, culpa.", "lentes de Sol", '../images/m1.jpg'));
-productos.push(new Producto(8,"Producto 8", 3700, "DESCRIPCIÓN: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis, culpa.", "lentes de prescripcion", '../images/m2.jpg'));
-productos.push(new Producto(9,"Producto 9", 2450, "DESCRIPCIÓN: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis, culpa.", "lentes de Sol", '../images/m3.jpg'));
-productos.push(new Producto(10,"Producto 10", 1500, "DESCRIPCIÓN: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis, culpa.", "lentes de Sol", '../images/m4.jpg'));
-productos.push(new Producto(11,"Producto 11", 1900, "DESCRIPCIÓN: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis, culpa.", "lentes de Sol", '../images/s1.jpg'));
-productos.push(new Producto(12,"Producto 12", 2490, "DESCRIPCIÓN: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis, culpa.", "lentes de Sol", '../images/s2.jpg'));
-productos.push(new Producto(13,"Producto 13", 3200, "DESCRIPCIÓN: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis, culpa.", "lentes de Sol", '../images/s3.jpg'));
-productos.push(new Producto(14,"Producto 14", 2300, "DESCRIPCIÓN: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis, culpa.", "lentes de Sol", '../images/s4.jpg'));
+console.log(productos);
+const traerProductosJson = async () => {
+    let response = await fetch ("../productos.json");
+    let data = await response.json();
+    console.log(response);
+    console.log(data);
 
+
+    data.forEach(el => {
+        let codigo = el.codigo;
+        let nombre = el.nombre;
+        let precio = el.precio;
+        let descripcion = el.descripcion;
+        let categoria = el.categoria;
+        let imagen = el.imagen;
+
+        // const prod = new Producto(codigo, producto, precio, descripcion, categoria, imagen); 
+        // productos.add(prod);
+        // (codigo, nombre, precio, descripcion, categoria, imagen)
+        productos.push(new Producto (codigo, nombre, precio, descripcion, categoria, imagen));
+    });
+}
+traerProductosJson();
+console.log(productos);
+console.log(productos.length);
+mostrarProductos(productos);
 // itero por el array aplicando el iva al precio de cada producto
 for(const prod of productos){
     prod.sumaIva();
@@ -65,5 +92,5 @@ function mostrarProductos(productos){
     }
 }
 
-mostrarProductos(productos);
+//mostrarProductos(productos);
 
