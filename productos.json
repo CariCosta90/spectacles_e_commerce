@@ -13,5 +13,4 @@
     {"codigo": 12, "nombre": "Producto 12", "precio": 2490, "descripcion": "DESCRIPCIÓN: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis, culpa.", "categoria": "lentes de Sol", "imagen": "../images/s2.jpg"},
     {"codigo": 13, "nombre": "Producto 13", "precio": 3200, "descripcion": "DESCRIPCIÓN: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis, culpa.", "categoria": "lentes de Sol", "imagen": "../images/s3.jpg"},
     {"codigo": 14, "nombre": "Producto 14", "precio": 2300, "descripcion": "DESCRIPCIÓN: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis, culpa.", "categoria": "lentes de Sol", "imagen": "../images/s4.jpg"}
-
 ]
