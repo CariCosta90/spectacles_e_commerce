@@ -20,8 +20,6 @@ let productos = [];
 const traerProductosJson = async () => {
     let response = await fetch ("../productos.json");
     let data = await response.json();
-    console.log(response);
-    console.log(data);
 
     data.forEach(el => {
         let codigo = el.codigo;
@@ -46,8 +44,8 @@ traerProductosJson();
 
 const listadoProductos = document.getElementById('productos');
 
-// creo la funcion para generar las cards en el HTML interactuando con el DOM - lo hago distinto a lo visto en clase complementaria para practicar. En vez de forEach uso For...of
-
+// creo la funcion para generar las cards en el HTML interactuando con el DOM 
+//Productos inHouse --> directos del stock del local
 function mostrarProductos(productos){
     // desestructuración     
     for (const prod of productos) {
@@ -70,5 +68,32 @@ function mostrarProductos(productos){
     }
 }
 
+//productos por encargo, traidos de la api de MercadoLibre
 
+let prodsMercadoLibre;
 
+const traerProductosMercadoLibre = async () => {
+    //traigo listado de Lentes filtrados por categoría 
+    let resp = await fetch ("https://api.mercadolibre.com/sites/MLU/search?q=Lentes&category=MLU158429");
+    let data = await resp.json();
+    prodsMercadoLibre = data.results;
+
+    const listadoProductos2 = document.getElementById('porEncargo');
+    prodsMercadoLibre.forEach(element => {
+        let contenedor2 = document.createElement("div");
+        contenedor2.className = 'card2';
+        contenedor2.style='width: 12rem;';
+        contenedor2.innerHTML = `<img src="${element.thumbnail}" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                <p class="card-title">${element.title}</p>
+                                <p class="card-price">$${element.price}</p>
+                                <a id="btnagregar${element.id}" class="btn btn-light agregarAlCarrito">Agregar al carrito</a>
+                                </div>  `;       
+        listadoProductos2.appendChild(contenedor2);
+        let botonSeleccionado = document.getElementById(`btnagregar${element.id}`);
+        botonSeleccionado.addEventListener('click', ()=> {
+            productos.push(new Producto (element.id, element.title, element.price, element.title, element.title, element.thumbnail));
+            agregarProductosalCarrito(element.id)})
+    });
+}
+traerProductosMercadoLibre();
