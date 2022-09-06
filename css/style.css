@@ -39,6 +39,12 @@ body main .liabilities .commit {
     text-decoration: none;
     color: green; }
 
+main .titulo {
+  text-align: center;
+  background-color: rgba(68, 92, 92, 0.322);
+  height: 5rem;
+  line-height: 5rem; }
+
 main #productos {
   margin: 5rem;
   display: flex;
@@ -102,6 +108,40 @@ main .modal .modal-content .elementoCarrito {
 
 main .dropdown {
   text-align: center; }
+
+main #porEncargo {
+  margin: 5rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  gap: 1rem; }
+  main #porEncargo .card2 {
+    border: 1px darkslategray solid;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around; }
+    main #porEncargo .card2 .agregarAlCarrito {
+      padding: 0.5rem;
+      margin-bottom: 1rem; }
+    main #porEncargo .card2 .card-title {
+      font-size: 0.9rem;
+      padding: 1rem 0.5rem; }
+    main #porEncargo .card2 .card-price {
+      color: #0fe90f;
+      font-style: italic; }
+    main #porEncargo .card2 .card-body {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      justify-items: center;
+      align-items: center;
+      background-color: darkslategray;
+      opacity: 0.8;
+      color: aliceblue;
+      padding: 0.2rem;
+      text-align: center;
+      height: 20rem; }
 
 .loginBody {
   background-color: rgba(112, 128, 144, 0.598);

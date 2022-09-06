@@ -12,6 +12,8 @@ function agregarProductosalCarrito(codigo){
 // trabajo con tostify
         Toastify({
             text: "Producto agregado",
+            close: true,
+            position: "left",
             style: {
                 background: "linear-gradient(to left, #00b09b, #96c93d)",
             }
@@ -24,6 +26,10 @@ function agregarProductosalCarrito(codigo){
         Toastify({
             text: "Producto agregado",
             className: "info",
+            close: true,
+            position: "left",
+            close: true,
+            position: "left",
             style: {
                 background: "linear-gradient(to left, #00b09b, #96c93d)",
             }
@@ -58,6 +64,8 @@ function mostrarCarrito(productoAgregado) {
     btnEliminar.addEventListener('click', ()=> {
         Toastify({
             text: "Producto eliminado",
+            close: true,
+            position: "left",
             style: {
                 background: "linear-gradient(to left, #E55C31, #E59031)",
             }

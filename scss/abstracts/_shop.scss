@@ -1,8 +1,12 @@
 
 main{
+    .titulo{
+        text-align: center;
+        background-color: rgba(68, 92, 92, 0.322);
+        height: 5rem;
+        line-height: 5rem;
+    }
     #productos{
-        // margin-top: 2rem;
-        // margin-bottom: 2rem;
         margin: 5rem;
         display: flex;
         flex-wrap: wrap;
@@ -81,5 +85,44 @@ main{
     }
     .dropdown{
         text-align: center;
+    }
+    #porEncargo{
+        margin: 5rem;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        align-items: center;
+        gap: 1rem;
+        .card2{
+            border: 1px $gris-oscuro solid;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            .agregarAlCarrito{
+                padding: 0.5rem;
+                margin-bottom: 1rem;
+            }
+            .card-title{
+                font-size: 0.9rem;
+                padding: 1rem 0.5rem;
+            }
+            .card-price{
+                color: rgb(15, 233, 15);
+                font-style: italic;
+            }
+            .card-body{
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                justify-items: center;
+                align-items: center;
+                background-color: darkslategray;
+                opacity: 0.8;
+                color: aliceblue;
+                padding: 0.2rem;
+                text-align: center;
+                height: 20rem;
+            }
+        }
     }
 }
