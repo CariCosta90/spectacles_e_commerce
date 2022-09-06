@@ -48,20 +48,16 @@ const traerProductosJson = async () => {
         let categoria = el.categoria;
         let imagen = el.imagen;
 
-        // const prod = new Producto(codigo, producto, precio, descripcion, categoria, imagen); 
-        // productos.add(prod);
-        // (codigo, nombre, precio, descripcion, categoria, imagen)
         productos.push(new Producto (codigo, nombre, precio, descripcion, categoria, imagen));
     });
+        // itero por el array aplicando el iva al precio de cada producto
+        for(const prod of productos){
+            prod.sumaIva();
+        }
+    mostrarProductos(productos);
 }
-traerProductosJson();
-console.log(productos);
-console.log(productos.length);
-mostrarProductos(productos);
-// itero por el array aplicando el iva al precio de cada producto
-for(const prod of productos){
-    prod.sumaIva();
-}    
+
+traerProductosJson();   
 
 // obtener nodo de productos:
 
