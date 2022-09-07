@@ -4,6 +4,5 @@ node_modules
 #ignora el archivo funciones.js
 funciones.js
 #ignora json
-*.json
-#excluye productos
-!productos.json
+package-lock.json
+package.json
