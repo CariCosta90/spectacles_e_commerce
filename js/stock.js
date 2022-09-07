@@ -1,13 +1,14 @@
 //creo una clase para generar una plantilla de objeto para los productos
 
 class Producto {
-    constructor (codigo, nombre, precio, descripcion, categoria, imagen){
+    constructor (codigo, nombre, precio, descripcion, categoria, imagen, prodDesc){
         this.codigo=codigo;
         this.nombre=nombre;
         this.precio=precio;        
         this.descripcion=descripcion;
         this.categoria=categoria;
         this.imagen=imagen;
+        this.prodDesc=prodDesc;
     }
     // agrego el toFixed para que queden solo 2 decimales al calcular el iva
     sumaIva(){
@@ -28,8 +29,9 @@ const traerProductosJson = async () => {
         let descripcion = el.descripcion;
         let categoria = el.categoria;
         let imagen = el.imagen;
+        let prodDesc = el.prodDesc;
 
-        productos.push(new Producto (codigo, nombre, precio, descripcion, categoria, imagen));
+        productos.push(new Producto (codigo, nombre, precio, descripcion, categoria, imagen, prodDesc));
     });
         // itero por el array aplicando el iva al precio de cada producto
         for(const prod of productos){

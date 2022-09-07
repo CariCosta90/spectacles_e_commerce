@@ -4,6 +4,7 @@ const listadoCarrito = document.getElementById('elementos');
 const listadoPromos = document.getElementById('desc');
 let actualizarContador = document.getElementById('contadorCarrito');
 let precioTotal = document.getElementById('precioTotal');
+let desc;
 
 // funcion para agregar productos al carrito cuando se seleccionan 
 function agregarProductosalCarrito(codigo){
@@ -96,12 +97,18 @@ for (var i = 0; i < btns.length; i++) {
 
         let desc = Number(btn.value);
         console.log(btn.value);
+        //forEach para popular parametro "prodDesc" con precio del producto con descuento aplicado
+        carrito.forEach(element => {
+            element.prodDesc = (parseFloat(element.precio*desc));
+            console.log(element.prodDesc);
+        });
         // agrego toFixed para dejar solo dos digitos despues de la coma
         precioTotal.innerHTML = carrito.reduce((acc,el)=> acc+(el.precio*el.cantidad)*desc, 0).toFixed(2);
     });
     }
 }
 }
+console.log(carrito);
 
 
 //integracion con API de MercadoPago
@@ -115,7 +122,7 @@ const pagar = async () =>{
             category_id: "",
             quantity: parseInt(element.cantidad),
             currency_id: "UYU",
-            unit_price: parseFloat(element.precio) 
+            unit_price: element.prodDesc
         }
         return nuevoElemento;
     })
@@ -133,4 +140,3 @@ const pagar = async () =>{
     console.log(data);
     window.open(data.init_point, "_blank")
 }
-
