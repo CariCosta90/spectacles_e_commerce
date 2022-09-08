@@ -91,7 +91,7 @@ actualizarContador.innerHTML = carrito.reduce((acc,el)=> acc+el.cantidad, 0);
 // actualizar total
 precioTotal.innerHTML = carrito.reduce((acc,el)=> acc+(el.precio*el.cantidad), 0);
 let btns = document.getElementsByClassName('btnDescuento');
-for (var i = 0; i < btns.length; i++) {
+
     for (const btn of btns){
     btn.addEventListener("click", function () {
 
@@ -107,7 +107,7 @@ for (var i = 0; i < btns.length; i++) {
     });
     }
 }
-}
+
 
 //integracion con API de MercadoPago
 const pagar = async () =>{
@@ -138,3 +138,5 @@ const pagar = async () =>{
     console.log(data);
     window.open(data.init_point, "_blank")
 }
+
+
