@@ -4,7 +4,7 @@ const listadoCarrito = document.getElementById('elementos');
 const listadoPromos = document.getElementById('desc');
 let actualizarContador = document.getElementById('contadorCarrito');
 let precioTotal = document.getElementById('precioTotal');
-let desc;
+let desc = 1;
 
 // funcion para agregar productos al carrito cuando se seleccionan 
 function agregarProductosalCarrito(codigo){
@@ -88,6 +88,8 @@ function actualizarCarrito(){
 // actualizar contador de productos
 actualizarContador.innerHTML = carrito.reduce((acc,el)=> acc+el.cantidad, 0);
 
+generarDescuento(desc);
+
 // actualizar total
 precioTotal.innerHTML = carrito.reduce((acc,el)=> acc+(el.precio*el.cantidad), 0);
 let btns = document.getElementsByClassName('btnDescuento');
@@ -97,15 +99,19 @@ let btns = document.getElementsByClassName('btnDescuento');
 
         let desc = Number(btn.value);
         console.log(btn.value);
-        //forEach para popular parametro "prodDesc" con precio del producto con descuento aplicado
-        carrito.forEach(element => {
-            element.prodDesc = (parseFloat(element.precio*desc));
-            console.log(element.prodDesc);
-        });
+        generarDescuento(desc);
         // agrego toFixed para dejar solo dos digitos despues de la coma
         precioTotal.innerHTML = carrito.reduce((acc,el)=> acc+(el.precio*el.cantidad)*desc, 0).toFixed(2);
     });
     }
+}
+
+function generarDescuento (desc){
+    //forEach para popular parametro "prodDesc" con precio del producto con descuento aplicado
+    carrito.forEach(element => {
+        element.prodDesc = (parseFloat(element.precio*desc));
+        console.log(element.prodDesc);
+    });
 }
 
 
