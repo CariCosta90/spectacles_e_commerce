@@ -84,6 +84,7 @@ function mostrarCarrito(productoAgregado) {
     });
 }
 
+//funcion para actualizar el carrito, total, contador, opciones de descuento
 function actualizarCarrito(){
 // actualizar contador de productos
 actualizarContador.innerHTML = carrito.reduce((acc,el)=> acc+el.cantidad, 0);
@@ -93,26 +94,50 @@ generarDescuento(desc);
 // actualizar total
 precioTotal.innerHTML = carrito.reduce((acc,el)=> acc+(el.precio*el.cantidad), 0);
 let btns = document.getElementsByClassName('btnDescuento');
-
+    //descuentos
     for (const btn of btns){
     btn.addEventListener("click", function () {
 
         let desc = Number(btn.value);
-        console.log(btn.value);
         generarDescuento(desc);
         // agrego toFixed para dejar solo dos digitos despues de la coma
         precioTotal.innerHTML = carrito.reduce((acc,el)=> acc+(el.precio*el.cantidad)*desc, 0).toFixed(2);
     });
     }
+    guardarCarrito();
 }
 
 function generarDescuento (desc){
     //forEach para popular parametro "prodDesc" con precio del producto con descuento aplicado
     carrito.forEach(element => {
         element.prodDesc = (parseFloat(element.precio*desc));
-        console.log(element.prodDesc);
     });
 }
+
+//guardar carrito para que se mantenga visible en tab home 
+
+let carritoGuardado;
+let carritoRecuperado;
+
+function guardarCarrito(){
+    carritoGuardado = JSON.stringify(carrito);
+    localStorage.setItem('Carrito', carritoGuardado);
+
+}
+
+//recuperar carrito
+function recuperarCarrito() {
+
+    carritoRecuperado = JSON.parse(localStorage.getItem('Carrito'));    
+//si hay elementos en carritoRecuperado, los mostramos y actualizamos el contador para que no vuelva a 0 al refrezcar o cambiar de page
+    if(carritoRecuperado){
+    carrito = carritoRecuperado;
+    carritoRecuperado.forEach(element => {
+        mostrarCarrito(element)
+        actualizarContador.innerHTML = carrito.reduce((acc,el)=> acc+el.cantidad, 0);
+    });}
+}
+
 
 
 //integracion con API de MercadoPago
@@ -141,8 +166,7 @@ const pagar = async () =>{
     });
 
     let data = await response.json();
-    console.log(data);
     window.open(data.init_point, "_blank")
 }
 
-
+recuperarCarrito();

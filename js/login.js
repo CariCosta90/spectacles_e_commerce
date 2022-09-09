@@ -1,3 +1,4 @@
+//clase para generar los usuarios
 class Usuario{
     constructor(correo, pass){
         this.correo=correo;
@@ -8,6 +9,7 @@ const usuariosRegistrados = [];
 
 let informacionLogin = document.getElementById("info");
 
+//informacion sobre contraseña 
 informacionLogin.innerHTML = `  <b>La contraseña debe contener:</b> 
                                 <li>Minimo 8 caracteres</li>
                                 <li>Un número</li>
@@ -15,6 +17,7 @@ informacionLogin.innerHTML = `  <b>La contraseña debe contener:</b>
                                 <li>Una letra minúscula</li>
                                 <li>Un caracter especial</li>`
 
+//registrar un usuario nuevo                                
 let btnRegistrar = document.getElementById("btnRegistrar");
 btnRegistrar.addEventListener('click', function(e){
     e.preventDefault();
@@ -23,11 +26,10 @@ btnRegistrar.addEventListener('click', function(e){
     let existe;
     let regularExpression  = /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/
 
-    console.log(regularExpression.test(passIngresada.value));
+//alertas con Sweet Alert
     if(regularExpression.test(passIngresada.value) && emailIngresado != ""){
         if(usuariosRegistrados.length>0){
             if(existe = usuariosRegistrados.find(element => element.correo == emailIngresado)){
-                //informacionLogin.innerHTML = `Ya existe un usuario registrado con ese correo`;
                 Swal.fire({
                     icon: 'error',
                     title: 'Oops...',
@@ -46,7 +48,6 @@ btnRegistrar.addEventListener('click', function(e){
             passIngresada.value=''
         }
     }else{
-        //informacionLogin.innerHTML =`La contraseaña no respeta el formato o no ingresó email`;
         Swal.fire({
             icon: 'warning',
             title: 'Oops...',
@@ -58,10 +59,10 @@ btnRegistrar.addEventListener('click', function(e){
 let usuariosGuardados;
 let usuariosRecuperados;
 
+//guardar usuarios
 function GuardarUsuarios(){
         usuariosGuardados = JSON.stringify(usuariosRegistrados);
         localStorage.setItem('Lista de usuarios', usuariosGuardados);
-        //informacionLogin.innerHTML =`El usuario se ha guardado correctamente`;
         Swal.fire({
             icon: 'success',
             title: 'Genial!',
@@ -69,13 +70,13 @@ function GuardarUsuarios(){
             })
 }
 
- 
+//recuperar usuarios
 function RecuperarUsuarios() {
 
     usuariosRecuperados = JSON.parse(localStorage.getItem('Lista de usuarios'));
-    console.log(usuariosRecuperados);
-    console.log(usuariosGuardados);
+
 }
+
 
 let btnLoguear = document.getElementById('btnLogin'); 
 btnLoguear.addEventListener('click', function (e) {
@@ -88,32 +89,17 @@ btnLoguear.addEventListener('click', function (e) {
 let encontrarUsuario = usuariosRecuperados.find(element => element.correo == emailUsuarioLogin);
 
 // anido un operador ternario dentro de otro
-
-encontrarUsuario  ? (encontrarUsuario.pass == passUsuarioLogin  ?  window.location.replace('../pages/store.html')  :  informacionLogin.innerHTML =`Contraseña incorrecta`) : informacionLogin.innerHTML =`Usuario no existe, debes registrarte`; 
-
-
-    if(encontrarUsuario){
-        if(encontrarUsuario.pass == passUsuarioLogin){
-            window.location.replace('../pages/store.html');
-        }else{
-            informacionLogin.innerHTML =`Contraseña incorrecta`;
-        }
-    }else{
-        informacionLogin.innerHTML =`Usuario no existe, debes registrarte`;
-    }    
-
-
-// anido un operador ternario dentro de otro
+// redireccion a página con datos correctos, mensaje de error con datos incorrectos
 
 encontrarUsuario  ? (encontrarUsuario.pass == passUsuarioLogin  ?  window.location.replace('../pages/store.html')  :  
-//informacionLogin.innerHTML =`Contraseña incorrecta`
+
 Swal.fire({
     icon: 'error',
     title: 'Oops...',
     text: 'Contraseña incorrecta!',
     })
 ) : 
-//informacionLogin.innerHTML =`Usuario no existe, debes registrarte`; 
+
 Swal.fire({
     icon: 'info',
     title: 'Oops...',
@@ -121,3 +107,5 @@ Swal.fire({
     })
 
 });
+
+
