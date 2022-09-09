@@ -5,7 +5,7 @@ class Usuario{
         this.pass=pass;
     }
 }
-const usuariosRegistrados = [];
+let usuariosRegistrados = [];
 
 let informacionLogin = document.getElementById("info");
 
@@ -74,9 +74,9 @@ function GuardarUsuarios(){
 function RecuperarUsuarios() {
 
     usuariosRecuperados = JSON.parse(localStorage.getItem('Lista de usuarios'));
-
+    usuariosRegistrados = [...usuariosRecuperados];
 }
-
+RecuperarUsuarios();
 
 let btnLoguear = document.getElementById('btnLogin'); 
 btnLoguear.addEventListener('click', function (e) {
