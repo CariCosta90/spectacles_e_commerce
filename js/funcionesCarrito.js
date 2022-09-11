@@ -58,7 +58,9 @@ function mostrarCarrito(productoAgregado) {
                         <button id="btn-eliminar${codigo}" class="botonEliminar"><span class="material-symbols-outlined">
                             delete
                             </span></button>  `;
-    listadoCarrito.appendChild(div); 
+    listadoCarrito.appendChild(div);
+    
+    actualizarCarrito();
 
     //eliminar productos del carrito        
     let btnEliminar = document.getElementById(`btn-eliminar${codigo}`);
@@ -88,7 +90,6 @@ function mostrarCarrito(productoAgregado) {
 function actualizarCarrito(){
 // actualizar contador de productos
 actualizarContador.innerHTML = carrito.reduce((acc,el)=> acc+el.cantidad, 0);
-
 generarDescuento(desc);
 
 // actualizar total
